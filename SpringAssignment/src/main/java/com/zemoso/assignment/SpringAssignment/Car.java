@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class Car {
 
-	 String carId;
+	 private String carId;
 
-	    String carName;
+	   private String carName;
 
 	    //Autowired Field
 	    @Autowired
