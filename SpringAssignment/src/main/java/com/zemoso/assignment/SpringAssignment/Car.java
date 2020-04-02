@@ -1,12 +1,14 @@
 package com.zemoso.assignment.SpringAssignment;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Car {
 
-	 private String carId;
+	 String carId;
 
-	   private String carName;
+	    String carName;
 
 	    //Autowired Field
 	    @Autowired

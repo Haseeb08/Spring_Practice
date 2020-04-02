@@ -1,5 +1,8 @@
 package com.zemoso.assignment.SpringAssignment;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Brand {
 
 	private String id;
