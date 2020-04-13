@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>List of Songs</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+    crossorigin="anonymous">
+	<style>
+		
+		footer {
+		   position: fixed;
+		   left: 0;
+		   bottom: 0;
+		   width: 100%;
+		   color: white;
+		   text-align: center;
+		}
+	
+	</style>
+	
+</head>
+
+<body>
+
+<header class="header"> 
+	
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  
+  
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+    
+    <a class="navbar-brand" href="#">Music Player
+    <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+    </a>
+    
+      <a class="nav-item nav-link active" th:href="@{/songs/list}">Home <span class="sr-only">(current)</span></a>
+      
+      <a class="nav-item nav-link" th:href="@{/songs/showFormForAddNewSong}">Download</a>
+      
+      <a class="nav-item nav-link"  th:href="@{/songs/displayPlaylist}">My Favourites</a>
+      
+    </div>
+  </div>
+
+
+
+</nav>
+
+</header>
+
+<div class="container">
+	<h3>My Favourite Songs : </h3>
+	<hr>
+	
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+			<th>Song Name</th>
+			<th>Singer Name</th>
+			<th>Action</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="theSong : ${playListSongs}">
+				
+				<td th:text="${theSong.songName}"></td>
+				<td th:text="${theSong.singerName}"></td>
+				<td>
+				
+				
+ 				 <a th:if=${theSong.favourite} th:href="@{/songs/showPlayPage(songId=${theSong.id})}" 
+ 						class="btn btn-primary btn-sm "> 
+ 					Play</a>	 					
+				
+				<a th:href="@{/songs/removeSongFromPlaylist(songId=${theSong.id})}" 
+ 						class="btn btn-primary btn-sm "
+ 						onclick="if (!(confirm('Are you sure , you want to remove this song from playlist ?'))) return false"> 
+ 					Remove</a>			
+				</td>
+			</tr>
+								
+		</tbody>
+	
+	</table>
+	
+	<hr>
+
+<a th:href="@{/songs/list}" 
+ 	class="btn btn-primary btn-sm "> 
+ 		Back</a>	
+</div>	
+
+<footer class="footer footer-dark bg-dark font-small">
+
+  <!-- Copyright -->
+  <div><a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+	</div> 
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://github.com/Haseeb08/">Haseeb </a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</body>
+
+</html>

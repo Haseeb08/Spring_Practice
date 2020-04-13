@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+    crossorigin="anonymous">
+
+	<title>Download Song</title>
+	
+	<style>
+		
+		footer {
+		   position: fixed;
+		   left: 0;
+		   bottom: 0;
+		   width: 100%;
+		   color: white;
+		   text-align: center;
+		}
+	
+	</style>
+	
+</head>
+
+<body>
+
+<header class="header"> 
+	<h1>Music Players</h1>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+    
+    <a class="navbar-brand" href="#">Music Player
+    <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+    </a>
+    
+     <a class="nav-item nav-link active" th:href="@{/songs/list}">Home <span class="sr-only">(current)</span></a>
+      
+      <a class="nav-item nav-link" th:href="@{/songs/showFormForAddNewSong}">Download</a>
+      
+      <a class="nav-item nav-link"  th:href="@{/songs/displayPlaylist}">My Favourites</a>
+      
+    </div>
+  </div>
+
+
+
+</nav>
+
+</header>
+
+	<div class="container">
+	
+		<h3>Download Song :</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Enter </p>
+	
+		<form action="#" th:action="@{/songs/save}"
+						 th:object="${theSong}" method="POST">
+		
+<!-- 		<!-- Adding a hidden field to handle update --> -->
+<!-- 		<input type="hidden" th:field="*{id}" /> -->
+		
+			<input type="text" th:field="*{songName}"
+					class="form-control mb-4 col-4" placeholder="Song name" 
+					 required>
+
+			<input type="text" th:field="*{singerName}"
+					class="form-control mb-4 col-4" placeholder="Singer name" 
+					required>
+
+				
+			<button type="submit" class="btn btn-info col-2">Download</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/songs/list}">Back</a>
+		
+	</div>
+
+<footer class="footer footer-dark bg-dark font-small">
+
+  <!-- Copyright -->
+  <div><a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+	</div> 
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://github.com/Haseeb08/">Haseeb </a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
